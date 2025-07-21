@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "white": "#F0F0E3",
+    "purple": "#9F60B3",
+    "teal": "#1D857F",
+    "lpurp": "#83769c",
+    "dark_purple": "#301D36",
+    "salmon": "#FCA17D",
+    "bl": "#3052CE",
+    "green": "#739C5C",
+    "red": "#DB626D",
+    "orangello": "#F1B028"
+  },
+  "maps": {
+    "user_name": {
+      "tonyb": "me"
+    }
+  },
+  "console_title_template": "PS v{{ .ShellVersion }} in {{ .Folder }}",
+  "transient_prompt": {
+    "background": "p:salmon",
+    "foreground": "p:dark_purple", 
+    "template": "<p:salmon,p:dark_purple>\ue0b6</> {{ now | date \"15:04\" }} <p:salmon,p:dark_purple>\ue0b8 </>"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "folder_separator_icon": "<p:dark_purple> \ue0b1 </>",
+            "home_icon": "~",
+            "style": "full"
+          },
+          "template": " {{ .Path }} <p:dark_purple> \ue0b1</>",
+          "background": "p:purple",
+          "foreground": "p:white",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "type": "path",
+          "style": "diamond"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "segments": [
+        {
+          "template": "<p:bl,transparent>\ue0b6</> \uebc7 {{ .Name }} <transparent,p:bl>\ue0b2</>",
+          "foreground": "p:white",
+          "background": "p:bl",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "PS"
+            }
+          },
+          "type": "shell",
+          "style": "plain"
+        },
+        {
+          "alias": "time",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "properties": {
+            "time_format": "15:04"
+          },
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:dark_purple",
+          "background": "p:salmon",
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": false
+        }
+      ]
+    },
+        {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "alias": "user_name",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ .UserName }} ",
+          "foreground": "p:white",
+          "background": "p:teal",
+          "type": "session",
+          "style": "diamond"
+        },
+        {
+          "alias": "admin_user_wrench",
+          "template": " \uf0ad ",
+          "foreground": "#111111",
+          "powerline_symbol": "\ue0b0",
+          "background": "#ffff66",
+          "type": "root",
+          "style": "powerline"
+        },
+        {
+          "type": "executiontime",
+          "properties": {
+            "always_enabled": true
+          },
+          "template": "<transparent>\ue0b0</> {{ .FormattedMs }}",
+          "foreground": "p:dark_purple",
+          "background": "p:orangello",
+          "style": "plain"
+        },
+        {          
+          "type": "status",
+          "properties": {
+            "always_enabled": true
+          },
+          "leading_diamond": "<p:orangello,p:dark_purple>\ue0b0</>",
+          "trailing_diamond": "\ue0b4",
+          "template": "<transparent>\ue0b0</> {{ if gt .Code 0 }} {{ else }}\u2713 {{ end }}",
+          "foreground": "p:white",
+          "background": "p:green",
+          "style": "diamond",
+          "background_templates": [
+            "{{ if gt .Code 0 }}p:red{{ end }}"
+          ]
+        }
+      ]
+    }
+  ],
+  
+  "version": 3,
+  "final_space": true
+}
