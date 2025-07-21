@@ -18,11 +18,13 @@
     }
   },
   "console_title_template": "PS v{{ .ShellVersion }} in {{ .Folder }}",
+
   "transient_prompt": {
     "background": "p:salmon",
     "foreground": "p:dark_purple", 
-    "template": "<p:salmon,p:dark_purple>\ue0b6</> {{ now | date \"15:04\" }} <p:salmon,p:dark_purple>\ue0b8 </>"
+    "template": "<p:salmon,transparent>\ue0b6</> {{ now | date \"15:04\" }} <p:salmon,p:transparent>\ue0b8 </>"
   },
+  
   "blocks": [
     {
       "type": "prompt",
@@ -114,7 +116,7 @@
           "properties": {
             "always_enabled": true
           },
-          "leading_diamond": "<p:orangello,p:dark_purple>\ue0b0</>",
+          "leading_diamond": "<p:orangello,transparent>\ue0b0</>",
           "trailing_diamond": "\ue0b4",
           "template": "<transparent>\ue0b0</> {{ if gt .Code 0 }} {{ else }}\u2713 {{ end }}",
           "foreground": "p:white",
