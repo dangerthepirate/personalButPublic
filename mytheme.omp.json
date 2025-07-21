@@ -22,7 +22,7 @@
   "transient_prompt": {
     "background": "p:salmon",
     "foreground": "p:dark_purple", 
-    "template": "<p:salmon,transparent>\ue0b6</> {{ now | date \"15:04\" }} <p:salmon,p:transparent>\ue0b8 </>"
+    "template": "<p:salmon,transparent>\ue0b6</> {{ now | date \"15:04\" }} <p:salmon,transparent>\ue0b8 </>"
   },
   
   "blocks": [
