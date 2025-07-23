@@ -47,7 +47,8 @@
       ]
     },
     {
-      "type": "rprompt",
+      "type": "prompt",
+      "alignment": "right",
       "segments": [
         {
           "template": "<p:bl,transparent>\ue0b6</> \uebc7 {{ .Name }} <transparent,p:bl>\ue0b2</>",
